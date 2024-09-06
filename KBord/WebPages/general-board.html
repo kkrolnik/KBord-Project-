@@ -18,12 +18,17 @@
         <h2>
             Submit entries here regardless of topic.
         </h2>
+        
+        <button onclick="window.location.href='index.html';">Home</button>
 
         <form onsubmit = "queryPosts();">
-            <input type = "text" value = "general " name = "query" id = "query"> <br>
+        	<label for = "query">Search by ID: </label><br>
+            <input type = "search" value = "general " name = "query" id = "query" autocomplete = "True"> <br>
             <input type="submit" value="Search">
         </form>
-
+        
+		<button onclick="location.reload()">Return from search</button>
+		
         <form onsubmit = "submitPost();">
            <br>
            <textarea id="user-post" name="user-post" rows="10" cols="30"></textarea><br>
