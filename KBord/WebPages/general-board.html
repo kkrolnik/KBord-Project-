@@ -1,0 +1,39 @@
+ <!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>General Board</title>
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body onload = "getAll()">
+
+        <h1>General Board</h1>
+
+        <h2>
+            Submit entries here regardless of topic.
+        </h2>
+
+        <form onsubmit = "queryPosts();">
+            <input type = "text" value = "general " name = "query" id = "query"> <br>
+            <input type="submit" value="Search">
+        </form>
+
+        <form onsubmit = "submitPost();">
+           <br>
+           <textarea id="user-post" name="user-post" rows="10" cols="30"></textarea></br>
+           <input type="submit" value="Post">
+        </form>
+
+
+        <!-- Load external JavaScript -->
+        <script src="scripts.js"></script>
+        
+    </body>
+
+</html>
