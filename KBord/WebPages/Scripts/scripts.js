@@ -1,5 +1,5 @@
 
-function submitPost(){
+function submitPost(boardSelected){
     event.preventDefault();
 	IDDisplay = document.createElement("p");
     postID = -1
@@ -8,7 +8,7 @@ function submitPost(){
 
     userPost.appendChild(postContent);
 
-    postID = savePostGeneral(document.getElementById("user-post").value);
+    postID = savePost(document.getElementById("user-post").value, boardSelected);
 	idNode = document.createTextNode("Thread ID: " + postID);
 	IDDisplay.appendChild(idNode);
 	
@@ -18,14 +18,14 @@ function submitPost(){
     
 }
 
-function savePostGeneral(toSave){
+function savePost(toSave, boardSelected){
     const key = Math.floor(Math.random() * 1000000);
-    const currBoard = "general ";
+    const currBoard = boardSelected.toString() + " ";
     localStorage.setItem(currBoard.concat(key), JSON.stringify(toSave));
-	return key
+	return currBoard + key
 }
 
-function getAll(){
+function getAll(boardSelected){
     for(let i = 0; i < localStorage.length; i++){
         getID = localStorage.key(i);
         idNode = document.createTextNode("Thread ID: " + getID);
@@ -37,9 +37,11 @@ function getAll(){
 
         displayID.appendChild(idNode);
         userPost.appendChild(contentConvert);
-
-        document.body.appendChild(displayID);
-        document.body.appendChild(userPost);
+		
+		if((getID.toString()).includes(boardSelected)){
+        	document.body.appendChild(displayID);
+        	document.body.appendChild(userPost);
+		}
     }
 }
 
@@ -58,7 +60,7 @@ function queryPosts(){
 	console.log("allPosts removed!")
 
 	idDisplay = document.createElement("p");
-	idNode = document.createTextNode(toQuery);
+	idNode = document.createTextNode("Thread ID: " + toQuery);
     toDisplay = document.createElement("p");
     postContent = localStorage.getItem(toQuery);
     contentNode = document.createTextNode(postContent);
