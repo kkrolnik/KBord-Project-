@@ -11,7 +11,7 @@
 
     </head>
 
-    <body onload = "getAll()">
+    <body onload = "getAll('general')">
 
         <h1>General Board</h1>
 
@@ -27,9 +27,9 @@
             <input type="submit" value="Search">
         </form>
         
-		<button onclick="location.reload()">Return from search</button>
+		<button onclick="location.reload()">Clear search</button>
 		
-        <form onsubmit = "submitPost();">
+        <form onsubmit = "submitPost('general');">
            <br>
            <textarea id="user-post" name="user-post" rows="10" cols="30"></textarea><br>
            <input type="submit" value="Post">
