@@ -1,0 +1,44 @@
+ <!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>CompSci Board</title>
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="StyleSheets/styles.css">
+
+    </head>
+
+    <body onload = "getAll('compsci')">
+
+        <h1>CompSci Board</h1>
+
+        <h2>
+            Submit computer-science related entries here.
+        </h2>
+        
+        <button onclick="window.location.href='index.html';">Home</button>
+
+        <form onsubmit = "queryPosts();">
+        	<label for = "query">Search by ID: </label><br>
+            <input type = "search" value = "compsci " name = "query" id = "query" autocomplete = "True"> <br>
+            <input type="submit" value="Search">
+        </form>
+        
+		<button onclick="location.reload()">Clear search</button>
+		
+        <form onsubmit = "submitPost('compsci');">
+           <br>
+           <textarea id="user-post" name="user-post" rows="10" cols="30"></textarea><br>
+           <input type="submit" value="Post">
+        </form>
+
+
+        <!-- Load external JavaScript -->
+        <script src="Scripts/scripts.js"></script>
+        
+    </body>
+
+</html>
